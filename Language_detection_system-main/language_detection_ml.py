@@ -45,7 +45,7 @@ print("Accuracy:", acc)
 report = classification_report(y_test, y_pred, output_dict=True)
 print("\nClassification Report:\n", classification_report(y_test, y_pred))
 
-# 🔹 Plot Confusion Matrix
+# Plot Confusion Matrix
 conf_mat = confusion_matrix(y_test, y_pred, labels=model.classes_)
 plt.figure(figsize=(12, 8))
 sns.heatmap(conf_mat, annot=True, fmt='d', cmap='Blues',
@@ -56,7 +56,7 @@ plt.ylabel("Actual")
 plt.tight_layout()
 plt.show()
 
-# 🔹 Bar chart of F1-scores per language
+# Bar chart of F1-scores per language
 f1_scores = {label: report[label]['f1-score'] for label in model.classes_ if label in report}
 plt.figure(figsize=(10, 5))
 sns.barplot(x=list(f1_scores.keys()), y=list(f1_scores.values()))
